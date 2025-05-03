@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel PDF to JSL Converter</title>
+</head>
+<body>
+    <h1>Convert Excel PDF to JSL Format</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="fileInput" name="file" accept=".pdf" required>
+        <button type="submit">Convert</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+       document.getElementById('uploadForm').onsubmit = async function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+    
+    const response = await fetch('http://127.0.0.1:5000/convert', {
+        method: 'POST',
+        body: formData
+    });
+
+    if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'VetanBill.xlsm';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    } else {
+        const errorMessage = await response.text();
+        document.getElementById('result').innerText = `Error: ${errorMessage}`;
+    }
+};
+
+    </script>
+</body>
+</html>
