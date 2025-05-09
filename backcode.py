@@ -46,7 +46,7 @@ def convert_pdf_to_excel(pdf_path):
 
     excel_file_path = "Vetan Bill.xlsm"
     workbook.save(excel_file_path)
-    template_path = r"C:\Users\Jayati Rai\OneDrive\Desktop\prapatra-g.xlsx"
+    template_path = "prapatra-g.xlsx"
     fill_data_into_template(template_path,excel_file_path)
     return excel_file_path
 
