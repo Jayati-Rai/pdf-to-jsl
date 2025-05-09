@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, send_file
+from vba_praptra_g import fill_data_into_template
 import pdfplumber
 import openpyxl
 import os
@@ -25,7 +26,7 @@ def convert():
 
     os.remove(pdf_path)  # Clean up temporary PDF file
 
-    return send_file(excel_file_path, as_attachment=True, download_name="converted.xlsx")
+    return send_file(excel_file_path, as_attachment=True, download_name="Vetan Bill.xlsm")
 
 def convert_pdf_to_excel(pdf_path):
     # Create an Excel workbook and add a worksheet
@@ -45,6 +46,8 @@ def convert_pdf_to_excel(pdf_path):
 
     excel_file_path = "Vetan Bill.xlsm"
     workbook.save(excel_file_path)
+    template_path = r"C:\Users\Jayati Rai\OneDrive\Desktop\prapatra-g.xlsx"
+    fill_data_into_template(template_path,excel_file_path)
     return excel_file_path
 
 if __name__ == '__main__':
