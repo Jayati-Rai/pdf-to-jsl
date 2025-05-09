@@ -40,8 +40,7 @@ def fill_data_into_template(template_path, output_path):
             coord = cell.coordinate
             new_cell = new_sheet[coord]
 
-            try:
-                # Copy only if not in a merged range or if it's the top-left of a merged range
+            try:# Copy only if not in a merged range or if it's the top-left of a merged range
                 if coord not in merged_all_cells or coord in merged_top_left_cells:
                     new_cell.value = cell.value  # Includes formulas
                     print(f"Copied cell {coord} with value: {cell.value}")
