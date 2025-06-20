@@ -2,13 +2,14 @@
 
 An end-to-end automation tool for generating salary grant sheets (`Vetan Bill`) for aided school teachers and staff, following the official format used in Uttar Pradesh. This tool eliminates repetitive manual work by replicating Excel templates—including merged cells, styling, and formulas—and inserting extracted data automatically.
 
-Currently, only **प्रपत्र-ग** (Prapatra-G) is supported. Full support for all five pages (प्रपत्र-क to प्रपत्र-घ) is coming soon.
+## Updated:
+Currently, all five pages of the grant (प्रपत्र-ग, 2G, 105, GPF challan and Challan 281) are supported.
 
 ## ⚡ Why Use This?
 
-Manually preparing each grant page takes **15–40 minutes** depending on data and format availability. This tool:
+Manually preparing each grant page takes **15–40 minutes**, depending on data and format availability. This tool:
 - Automates formatting, merged cells, styling, and formulas
-- Generates the output in **under 30 seconds**
+- Generates the output in **under 30 seconds** which makes it **60 times** more efficient than the standard method.
 - Produces a `.xlsm` file compatible with official workflows
 
 ## 🛠 Technologies Used
@@ -27,25 +28,6 @@ Manually preparing each grant page takes **15–40 minutes** depending on data a
 - ✅ Copies formulas and styles to the new workbook
 - ✅ Automatically creates "प्रपत्र-ग" in the output file
 - ✅ Fast and accurate generation
-- 🔜 More grant pages (क, ख, घ, ड) coming soon
-
-## 📂 Folder Structure
-
-├── templates/
-
-│ └── prapatra-g.xlsx # Source Excel template
-
-├── static/
-
-│ └── ... # (Optional) Web assets
-
-├── vetan_generator.py # Core logic for template copy
-
-├── app.py # Flask app for UI
-
-├── requirements.txt # Python dependencies
-
-└── README.md
 
 ## 🚀 Getting Started
 
@@ -69,7 +51,7 @@ pip install -r requirements.txt
 4. **Use the Interface**
    
   Upload your Excel template and choose the destination file.
-  Click Generate to create प्रपत्र-ग automatically.
+  Click Generate to create GRANT automatically.
 
 🧪 Sample Code
 <pre>
@@ -98,8 +80,6 @@ template_ws = template_wb["प्रपत्र-ग"]
 
 
 ## 📈 Future Plans
-
-• Add support for all grant sheets:प्रपत्र-ग, 105, 2G, Challan etc.
 
 • Build PDF-to-Excel data mapping layer
 
